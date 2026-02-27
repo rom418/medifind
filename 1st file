@@ -1,0 +1,16 @@
+index.html
+style.css
+script.js
+
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>MEDIFIND:Appointments Made Easy</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Hello World</h1>
+  <script src="script.js"></script>
+</body>
+</html>
