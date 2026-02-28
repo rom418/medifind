@@ -1,6 +1,4 @@
-index.html
-style.css
-script.js
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -68,7 +66,7 @@ let selectedCategory = "";
 function loadDoctors(category){
     selectedCategory = category;
 
-    fetch(`/api/doctors?category=${category}`)
+    fetch(`http://localhost:5000/api/doctors?category=${category}`)
     .then(res => res.json())
     .then(data => {
         const rows = data.doctors || [];
@@ -200,7 +198,7 @@ function book(){
         return;
     }
 
-    fetch("/api/appointments", {
+    fetch("http://localhost:5000/api/appointments", {
         method:"POST",
         headers:{ "Content-Type":"application/json" },
         body: JSON.stringify({
@@ -237,7 +235,7 @@ function toggleHistory(){
         const hlist = document.getElementById('history-list');
         if (!hlist) return;
         hlist.innerHTML = '<li class="empty-placeholder">Loading...</li>';
-        fetch('/api/appointments')
+        fetch('http://localhost:5000/api/appointments')
             .then(r => r.json())
             .then(data => {
                 hlist.innerHTML = '';
