@@ -62,11 +62,11 @@
 <script>
 let selectedDoctor = "";
 let selectedCategory = "";
-
+const API_URL = "https://medifind-t7kk.onrender.com";
 function loadDoctors(category){
     selectedCategory = category;
 
-    fetch(`http://localhost:5000/api/doctors?category=${category}`)
+    fetch(`${API_URL}/api/doctors?category=${category}`)
     .then(res => res.json())
     .then(data => {
         const rows = data.doctors || [];
@@ -198,7 +198,7 @@ function book(){
         return;
     }
 
-    fetch("http://localhost:5000/api/appointments", {
+    fetch(`${API_URL}/api/appointments`, {
         method:"POST",
         headers:{ "Content-Type":"application/json" },
         body: JSON.stringify({
@@ -235,7 +235,7 @@ function toggleHistory(){
         const hlist = document.getElementById('history-list');
         if (!hlist) return;
         hlist.innerHTML = '<li class="empty-placeholder">Loading...</li>';
-        fetch('http://localhost:5000/api/appointments')
+        fetch(`${API_URL}/api/appointments`)
             .then(r => r.json())
             .then(data => {
                 hlist.innerHTML = '';
