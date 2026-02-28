@@ -32,7 +32,7 @@ CORS(app)
 class DatabaseConnection:
     def __init__(self):
         try:
-            self.conn = mariadb.connect(DB_CONFIG)
+            self.conn = mariadb.connect(**DB_CONFIG)
             self.cursor = self.conn.cursor()
         except mariadb.Error as e:
             print("Database connection error:", e)
